@@ -14,10 +14,32 @@ export function todosReducer(
   action: TodoListModule.Actions
 ): TodoListState {
   switch (action.type) {
-    case TodoListModule.ActionTypes.INIT_TODOS:
+    // case TodoListModule.ActionTypes.INIT_TODOS:
+    //     return {
+    //         ...state,
+    //         data: [
+    //             ...action.payload
+    //         ]
+    //     };
+
+    case TodoListModule.ActionTypes.LOAD_INIT_TODOS:
         return {
             ...state,
-            data: [...todosMock]
+            loading: true
+        };
+
+    case TodoListModule.ActionTypes.SUCCESS_INIT_TODOS:
+        return {
+            ...state,
+            loading: false,
+            loaded: true,
+            data: action.payload
+        };
+
+    case TodoListModule.ActionTypes.ERROR_INIT_TODOS:
+        return {
+            ...state,
+            loading: false
         };
 
     case TodoListModule.ActionTypes.CREATE_TODO:

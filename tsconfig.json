@@ -7,7 +7,10 @@
       "@StoreConfig": ["app/store/index.ts"],
       "@Actions/*": ["app/store/actions/*"],
       "@Reducers/*": ["app/store/reducers/*"],
-      "@Selectors/*": ["app/store/selectors/*"]
+      "@Selectors/*": ["app/store/selectors/*"],
+      "@Services/*": ["app/services/*"],
+      "@Env": ["environments/environment.ts"],
+      "@Effects/*": ["app/store/effects/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

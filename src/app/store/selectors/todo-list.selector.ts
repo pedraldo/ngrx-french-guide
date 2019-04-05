@@ -8,7 +8,17 @@ export const selectTodos$ = createSelector(
   todos => todos.data
 );
 
-export const selectTodoSelected$ = createSelector(
+export const selectTodosSelected$ = createSelector(
   selectTodoListState$,
   todos => todos.selectTodo
+);
+
+export const selectTodosLoading$ = createSelector(
+  selectTodoListState$,
+  todos => todos.loading
+);
+
+export const selectTodosLoaded$ = createSelector(
+  selectTodoListState$,
+  todos => todos.loaded
 );

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AppState } from '@StoreConfig';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { selectTodoSelected$ } from '@Selectors/todo-list.selector';
+import { selectTodosSelected$ } from '@Selectors/todo-list.selector';
 import { tap } from 'rxjs/operators';
 import { TodoListModule } from '@Actions/todo-list.action';
 
@@ -25,7 +25,7 @@ export class SelectTodoComponent implements OnInit {
     @Inject(FormBuilder) fb: FormBuilder
   ) { 
     this.selectTodo$ = store.pipe(
-      select(selectTodoSelected$),
+      select(selectTodosSelected$),
       tap(todo => this.selectTodo = todo)
     );
 
