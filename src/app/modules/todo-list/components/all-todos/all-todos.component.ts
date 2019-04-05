@@ -7,6 +7,7 @@ import { AppState } from '@StoreConfig';
 import { select, Store } from '@ngrx/store';
 import { TodoListModule } from '@Actions/todo-list.action';
 import { selectTodos$ } from '@Selectors/todo-list.selector';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-todos',
@@ -19,6 +20,7 @@ export class AllTodosComponent implements OnInit {
   public todoForm: FormGroup;
 
   constructor(
+    private router: Router,
     private store: Store<AppState>,
     @Inject(FormBuilder) fb: FormBuilder
   ) {
@@ -62,5 +64,10 @@ export class AllTodosComponent implements OnInit {
 
   public deleteTodo(id: number) {
     this.store.dispatch(new TodoListModule.DeleteTodo(id));
+  }
+
+  public selectTodo(todo: Todo) {
+    this.store.dispatch(new TodoListModule.SelectTodo(todo));
+    this.router.navigate(['/todo-list/select-todo'])
   }
 }
